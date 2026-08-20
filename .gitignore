@@ -1,0 +1,20 @@
+.DS_Store
+*.zip
+Archive.zip
+*.log
+coverage/
+dist/
+
+node_modules/
+worker/node_modules/
+worker/.wrangler/
+worker/.dev.vars
+worker/.env
+worker/.env.*
+
+**/*.env
+!**/*.env.example
+
+# Local reporter configs and automation backups
+reporters/**/*.local
+reporters/**/*.secret

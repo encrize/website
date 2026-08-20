@@ -1,0 +1,21 @@
+name = "encrize-devices"
+main = "src/index.ts"
+compatibility_date = "2026-08-19"
+workers_dev = false
+
+routes = [
+  { pattern = "encrize.vip/api/*", zone_name = "encrize.vip" }
+]
+
+[[kv_namespaces]]
+binding = "DEVICES_KV"
+# KV namespace IDs are identifiers, not secrets.
+id = "34d6ebe813564269be0d6de59f0c87fa"
+preview_id = "ce8d91cdebf7408d8137d48eac866e20"
+
+[vars]
+ALLOWED_ORIGIN = "https://encrize.vip"
+
+[observability]
+enabled = true
+head_sampling_rate = 1

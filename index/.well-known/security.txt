@@ -1,0 +1,9 @@
+Contact: mailto:admin@encrize.vip
+Contact: https://t.me/encrize
+Encryption: https://encrize.vip/pgp-key.txt
+Preferred-Languages: en
+Canonical: https://encrize.vip/.well-known/security.txt
+Policy: https://encrize.vip/#security
+Hiring: https://encrize.vip/
+
+Expires: 2027-07-30T00:00:00.000Z
