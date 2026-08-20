@@ -615,3 +615,161 @@
 	window.addEventListener("online", loadDevices);
 	document.addEventListener("visibilitychange", function () { if (!document.hidden) loadDevices(); });
 })();
+
+
+(function () {
+	var API_URL = "/api/music";
+	var LISTENBRAINZ_USER = "encrize";
+	var CACHE_KEY = "last-listened-v1";
+	var CACHE_TTL = 7 * 24 * 60 * 60 * 1000;
+	var REQUEST_TIMEOUT_MS = 10000;
+	var card = document.getElementById("music-card");
+	var cover = document.getElementById("music-cover");
+	var title = document.getElementById("music-title");
+	var artist = document.getElementById("music-artist");
+	var time = document.getElementById("music-time");
+	if (!card || !cover || !title || !artist || !time || !window.fetch) return;
+
+	var playedAt = "";
+
+	function relative(iso) {
+		var stamp = Date.parse(iso);
+		if (!isFinite(stamp)) return "";
+		var seconds = Math.max(0, Math.floor((Date.now() - stamp) / 1000));
+		if (seconds < 60) return "just now";
+		var minutes = Math.floor(seconds / 60);
+		if (minutes < 60) return minutes + "m ago";
+		var hours = Math.floor(minutes / 60);
+		if (hours < 24) return hours + "h ago";
+		var days = Math.floor(hours / 24);
+		if (days < 30) return days + "d ago";
+		return new Date(stamp).toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+	}
+
+	function valid(data) {
+		return data && typeof data.title === "string" && data.title.trim() &&
+			typeof data.artist === "string" && data.artist.trim() &&
+			typeof data.playedAt === "string" && isFinite(Date.parse(data.playedAt));
+	}
+
+	function youtubeUrl(track, performer) {
+		return "https:" + "//www.youtube.com/results?search_query=" + encodeURIComponent(track + " " + performer);
+	}
+
+	function listenBrainzUrl() {
+		return "https:" + "//api.listenbrainz.org/1/user/" + encodeURIComponent(LISTENBRAINZ_USER) + "/listens?count=1";
+	}
+
+	function itunesUrl(track, performer) {
+		return "https:" + "//itunes.apple.com/search?entity=song&limit=1&term=" + encodeURIComponent(track + " " + performer);
+	}
+
+	function normalizeListenBrainz(payload) {
+		var listens = payload && payload.payload && payload.payload.listens;
+		var listen = Array.isArray(listens) ? listens[0] : null;
+		var metadata = listen && listen.track_metadata;
+		if (!metadata) return null;
+		var additional = metadata.additional_info || {};
+		var mapping = metadata.mbid_mapping || {};
+		var release = additional.release_mbid || mapping.caa_release_mbid || mapping.release_mbid || "";
+		return {
+			title: metadata.track_name,
+			artist: metadata.artist_name,
+			playedAt: Number(listen.listened_at) > 0 ? new Date(Number(listen.listened_at) * 1000).toISOString() : "",
+			coverUrl: /^[0-9a-f-]{36}$/i.test(release) ? "https:" + "//coverartarchive.org/release/" + release + "/front-250" : null
+		};
+	}
+
+	function render(data) {
+		if (!valid(data)) return false;
+		playedAt = data.playedAt;
+		title.textContent = data.title.trim();
+		artist.textContent = data.artist.trim();
+		title.href = youtubeUrl(data.title.trim(), data.artist.trim());
+		title.setAttribute("aria-label", "Search YouTube for " + data.title.trim() + " by " + data.artist.trim());
+		time.dateTime = playedAt;
+		time.textContent = relative(playedAt);
+		card.classList.remove("is-loading", "is-error", "has-cover");
+		card.setAttribute("aria-busy", "false");
+
+		cover.removeAttribute("src");
+		if (typeof data.coverUrl === "string" && /^https:\/\//.test(data.coverUrl)) {
+			cover.onload = function () { card.classList.add("has-cover"); };
+			cover.onerror = function () { card.classList.remove("has-cover"); cover.removeAttribute("src"); };
+			cover.src = data.coverUrl;
+		}
+		return true;
+	}
+
+	function readCache() {
+		try {
+			var cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "null");
+			if (!cached || Date.now() - cached.savedAt > CACHE_TTL || !valid(cached.data)) return null;
+			return cached.data;
+		} catch (e) { return null; }
+	}
+
+	function saveCache(data) {
+		try { localStorage.setItem(CACHE_KEY, JSON.stringify({ savedAt: Date.now(), data: data })); } catch (e) {}
+	}
+
+	var cached = readCache();
+	if (cached) render(cached);
+
+	function requestJson(url) {
+		var controller = typeof AbortController === "function" ? new AbortController() : null;
+		var timeout = controller ? setTimeout(function () { controller.abort(); }, REQUEST_TIMEOUT_MS) : 0;
+		return fetch(url, {
+			cache: "no-store",
+			headers: { "Accept": "application/json" },
+			signal: controller ? controller.signal : undefined
+		}).then(function (response) {
+			if (!response.ok) throw new Error("music " + response.status);
+			return response.json();
+		}).then(function (data) {
+			if (timeout) clearTimeout(timeout);
+			return data;
+		}, function (error) {
+			if (timeout) clearTimeout(timeout);
+			throw error;
+		});
+	}
+
+	function enrichCover(data) {
+		if (!valid(data)) return Promise.resolve(data);
+		return requestJson(itunesUrl(data.title, data.artist)).then(function (result) {
+			var item = result && Array.isArray(result.results) ? result.results[0] : null;
+			var artwork = item && typeof item.artworkUrl100 === "string" ? item.artworkUrl100 : "";
+			if (/^https:\/\/[^/]+\.mzstatic\.com\//i.test(artwork)) {
+				data.coverUrl = artwork.replace(/\/100x100bb\./, "/300x300bb.");
+			}
+			return data;
+		}).catch(function () { return data; });
+	}
+
+	function showUnavailable() {
+		if (cached) return;
+		card.classList.remove("is-loading", "has-cover");
+		card.classList.add("is-error");
+		card.setAttribute("aria-busy", "false");
+		card.setAttribute("aria-label", "Music status unavailable");
+		title.textContent = "Music status unavailable";
+		title.removeAttribute("href");
+		title.removeAttribute("target");
+		artist.textContent = "check ListenBrainz sync";
+		time.textContent = "";
+	}
+
+	requestJson(API_URL)
+		.catch(function () {
+			return requestJson(listenBrainzUrl()).then(normalizeListenBrainz);
+		})
+		.then(enrichCover)
+		.then(function (data) {
+			if (!render(data)) throw new Error("invalid music response");
+			saveCache(data);
+		})
+		.catch(showUnavailable);
+
+	setInterval(function () { if (playedAt) time.textContent = relative(playedAt); }, 60000);
+})();

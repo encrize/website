@@ -15,6 +15,7 @@ preview_id = "ce8d91cdebf7408d8137d48eac866e20"
 
 [vars]
 ALLOWED_ORIGIN = "https://encrize.vip"
+LISTENBRAINZ_USER = "encrize"
 
 [observability]
 enabled = true

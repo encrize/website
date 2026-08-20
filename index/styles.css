@@ -77,6 +77,36 @@ code{font-family:var(--mono);font-size:.85em;color:var(--text);background:var(--
 .latest-body a:hover{color:var(--accent);border-color:var(--accent);}
 #latest-post-date{color:var(--faint);}
 
+.music-card{position:relative;display:grid;grid-template-columns:72px minmax(0,1fr) 24px;align-items:center;gap:15px;min-height:102px;margin-top:12px;padding:14px 16px 14px 14px;overflow:hidden;border:1px solid var(--border);border-radius:14px;background:linear-gradient(135deg,var(--surface-2),var(--surface));transition:border-color .2s ease,background .2s ease,transform .2s ease;}
+.music-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(260px 120px at 0 50%,rgba(var(--accent-rgb),.13),transparent 72%);}
+.music-card:hover{border-color:rgba(var(--accent-rgb),.34);background:var(--surface-2);transform:translateY(-1px);}
+.music-cover-wrap{position:relative;z-index:1;width:72px;height:72px;overflow:hidden;border:1px solid var(--border);border-radius:10px;background:var(--bg);}
+.music-cover{position:relative;z-index:2;display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .2s ease;}
+.music-card.has-cover .music-cover{opacity:1;}
+.music-cover-fallback{position:absolute;inset:0;display:grid;place-items:center;color:var(--accent);font-size:24px;background:linear-gradient(145deg,rgba(var(--accent-rgb),.16),rgba(122,183,255,.08));}
+.music-copy{position:relative;z-index:1;min-width:0;}
+.music-meta{display:flex;align-items:center;gap:7px;min-width:0;font-family:var(--mono);font-size:10px;line-height:1.3;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);}
+.music-meta time{margin-left:auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:0;text-transform:none;}
+.music-bars{display:inline-flex;align-items:flex-end;gap:2px;width:11px;height:10px;flex:none;}
+.music-bars i{display:block;width:2px;border-radius:2px;background:var(--accent);animation:music-bar .9s ease-in-out infinite alternate;}
+.music-bars i:nth-child(1){height:5px;}
+.music-bars i:nth-child(2){height:10px;animation-delay:-.45s;}
+.music-bars i:nth-child(3){height:7px;animation-delay:-.7s;}
+@keyframes music-bar{to{height:3px;opacity:.55;}}
+.music-title{display:block;margin-top:7px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15px;font-weight:650;line-height:1.25;color:var(--text);}
+.music-title::after{content:"";position:absolute;inset:0;z-index:3;}
+.music-title:hover{color:var(--accent);}
+.music-artist{margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;line-height:1.35;color:var(--muted);}
+.music-arrow{position:relative;z-index:1;align-self:center;color:var(--faint);font-family:var(--mono);font-size:14px;transition:color .2s ease,transform .2s ease;}
+.music-card:hover .music-arrow{color:var(--accent);transform:translate(2px,-2px);}
+.music-card.is-loading .music-title,.music-card.is-loading .music-artist{color:transparent;border-radius:4px;background:linear-gradient(90deg,var(--surface-2),rgba(255,255,255,.07),var(--surface-2));background-size:200% 100%;animation:device-shimmer 1.35s linear infinite;}
+.music-card.is-loading .music-title{width:min(88%,240px);}
+.music-card.is-loading .music-artist{width:min(56%,150px);}
+.music-card.is-error{border-style:dashed;}
+.music-card.is-error .music-bars{opacity:.42;}
+.music-card.is-error .music-bars i{animation:none;height:3px;}
+.music-card.is-error .music-arrow{display:none;}
+
 section{padding:84px 0;border-top:1px solid var(--border);}
 #about{padding-top:34px;}
 .section-head{max-width:70ch;margin-bottom:44px;}
@@ -443,6 +473,11 @@ footer{border-top:1px solid var(--border);padding:32px 0 48px;}
 	.latest-label{font-size:10px;}
 	.latest-body{font-size:13px;line-height:1.45;}
 	.latest-body a{padding-top:0;}
+	.music-card{grid-template-columns:64px minmax(0,1fr) 20px;min-height:92px;margin-top:10px;padding:13px;gap:13px;border-radius:12px;}
+	.music-cover-wrap{width:64px;height:64px;border-radius:9px;}
+	.music-meta{font-size:9px;gap:6px;}
+	.music-title{font-size:14px;}
+	.music-artist{font-size:12.5px;}
 	.hero-side{gap:14px;}
 	.hero-art{overflow:hidden;aspect-ratio:5/4;border:1px solid var(--border);border-radius:18px;background:var(--surface);box-shadow:0 20px 50px -34px rgba(var(--accent-rgb),.58);}
 	.hero-art::before{inset:-6%;filter:blur(20px);}

@@ -15,6 +15,7 @@ const env: Env = {
 	ANDROID_PHONE_TOKEN: "android-secret",
 	IPHONE_6_TOKEN: "iphone-secret",
 	ALLOWED_ORIGIN: "https://encrize.vip",
+	LISTENBRAINZ_USER: "encrize",
 };
 
 async function call(path: string, init?: RequestInit) {
@@ -71,5 +72,37 @@ response = await call("/api/devices/linux-laptop", {
 });
 assert.equal(response.status, 204);
 assert.deepEqual(await (await call("/api/devices")).json(), {});
+
+const realFetch = globalThis.fetch;
+let musicFetches = 0;
+globalThis.fetch = async (input: string | URL | Request) => {
+	const url = String(input);
+	if (!url.startsWith("https://api.listenbrainz.org/")) return realFetch(input);
+	musicFetches += 1;
+	return new Response(JSON.stringify({
+		payload: {
+			listens: [{
+				listened_at: 1787229000,
+				track_metadata: {
+					track_name: "Everything In Its Right Place",
+					artist_name: "Radiohead",
+					additional_info: { release_mbid: "a8cb2f10-ec41-4cf5-979e-69274b5aa4aa" },
+				},
+			}],
+		},
+	}), { status: 200, headers: { "Content-Type": "application/json" } });
+};
+
+response = await call("/api/music");
+assert.equal(response.status, 200);
+const music = await response.json() as Record<string, unknown>;
+assert.equal(music.title, "Everything In Its Right Place");
+assert.equal(music.artist, "Radiohead");
+assert.equal(music.playedAt, "2026-08-20T12:30:00.000Z");
+assert.match(String(music.coverUrl), /coverartarchive\.org\/release\//);
+response = await call("/api/music");
+assert.equal(response.status, 200);
+assert.equal(musicFetches, 1);
+globalThis.fetch = realFetch;
 
 console.log("devices worker tests: ok");

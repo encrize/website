@@ -1,5 +1,6 @@
 import { hasValidDeviceToken } from "./auth";
 import { deleteDevice, getDevices, isDeviceId, jsonResponse, postDevice } from "./devices";
+import { getLastListen } from "./music";
 import type { Env } from "./types";
 
 function withApiHeaders(response: Response, request: Request, env: Env): Response {
@@ -52,6 +53,11 @@ async function route(request: Request, env: Env): Promise<Response> {
 	if (path === "/api/devices") {
 		if (request.method !== "GET") return methodNotAllowed("GET, OPTIONS");
 		return getDevices(env);
+	}
+
+	if (path === "/api/music") {
+		if (request.method !== "GET") return methodNotAllowed("GET, OPTIONS");
+		return getLastListen(env);
 	}
 
 	const match = /^\/api\/devices\/([a-z0-9][a-z0-9-]{0,63})$/.exec(path);

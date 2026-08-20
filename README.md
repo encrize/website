@@ -59,11 +59,14 @@ npx wrangler deploy
 
 Route: `https://encrize.vip/api/*`. The zone must live in the same account and be proxied through Cloudflare. `workers_dev = false`, so nothing is published on `workers.dev`.
 
+The music card uses the public ListenBrainz API. Set `LISTENBRAINZ_USER` in `worker/wrangler.toml` and the matching `LISTENBRAINZ_USER` value near the bottom of `index/script.js` to the profile whose latest listen should appear. The browser falls back to ListenBrainz directly when the Worker route has not been deployed yet and uses the public iTunes Search API to fill missing cover art. ListenBrainz can import scrobbles from Spotify and other players; no API key is exposed to the browser.
+
 ## API
 
 | Method | Path | Auth | Notes |
 | --- | --- | --- | --- |
 | `GET` | `/api/devices` | none | Public. Returns `{}` until the first report. |
+| `GET` | `/api/music` | none | Public. Returns the latest ListenBrainz track, cached in KV. |
 | `POST` | `/api/devices/:id` | `Bearer <device token>` | Partial JSON patch, merged into the record. |
 | `DELETE` | `/api/devices/:id` | `Bearer <device token>` | Clears the record. |
 

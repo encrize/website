@@ -11,6 +11,7 @@ export interface Env {
 	IPHONE_6_TOKEN?: string;
 	MACBOOK_TOKEN?: string;
 	ALLOWED_ORIGIN?: string;
+	LISTENBRAINZ_USER?: string;
 }
 
 export type TokenBinding =
