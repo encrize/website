@@ -1,7 +1,64 @@
 {
-	"generatedAt": null,
+	"generatedAt": "2026-08-20T14:43:26.038Z",
 	"user": "encrize",
-	"total": 0,
-	"repos": 0,
-	"pairs": []
+	"total": 4843986,
+	"repos": 32,
+	"pairs": [
+		[
+			"C",
+			3038825
+		],
+		[
+			"JavaScript",
+			466259
+		],
+		[
+			"HTML",
+			391541
+		],
+		[
+			"Objective-C",
+			371105
+		],
+		[
+			"Kotlin",
+			266612
+		],
+		[
+			"CSS",
+			173309
+		],
+		[
+			"Python",
+			70699
+		],
+		[
+			"Shell",
+			25459
+		],
+		[
+			"Makefile",
+			14106
+		],
+		[
+			"Assembly",
+			11701
+		],
+		[
+			"C++",
+			11235
+		],
+		[
+			"CMake",
+			1949
+		],
+		[
+			"Linker Script",
+			1108
+		],
+		[
+			"Batchfile",
+			78
+		]
+	]
 }
