@@ -1,0 +1,26 @@
+body{background:#FFF;color:#000;font-family:"Times New Roman",Times,serif;font-size:18px;line-height:1.5;margin:20px auto;padding:0 16px;max-width:760px;}
+    h1{font-size:2em;margin:0.3em 0;}
+    h2{font-size:1.4em;margin:1em 0 0.4em;}
+    p{margin:0.7em 0;}
+    a{color:#0000EE;display:inline-block;padding:3px 4px;line-height:1.35;}
+    a:visited{color:#551A8B;}
+    a:active{color:#FF0000;}
+    ul{margin:0.5em 0;padding-left:26px;}
+    li{margin:3px 0;}
+    hr{margin:1em 0;}
+    .nav{margin:0.8em 0;}
+    .btn{border:1px solid #000000;padding:2px 9px;text-decoration:none;color:#000000;margin-right:6px;font-size:0.9em;}
+    .btn:visited{color:#000000;}
+    .btn:hover{background:#000000;color:#FFFFFF;}
+    footer{color:#333333;}
+    label{display:block;margin:0.6em 0 0.2em;}
+    input,textarea{font-family:"Courier New",Courier,monospace;font-size:16px;width:100%;box-sizing:border-box;border:1px solid #000;background:#FFF;color:#000;padding:6px 7px;}
+    textarea{min-height:88px;resize:vertical;word-break:break-all;}
+    button{font-family:"Times New Roman",Times,serif;font-size:0.95em;border:1px solid #000;background:#FFF;color:#000;padding:5px 12px;margin:8px 6px 0 0;cursor:pointer;min-height:34px;}
+    button:hover{background:#000;color:#FFF;}
+    button:disabled{color:#777;border-color:#777;background:#FFF;cursor:default;}
+    .out{border:1px solid #000;background:#F9F8F7;padding:8px 9px;margin:0.7em 0 0;font-family:"Courier New",Courier,monospace;font-size:15px;white-space:pre-wrap;word-break:break-all;min-height:1.4em;}
+    .note{color:#333;font-size:0.85em;}
+    .err{color:#B00000;}
+    .ok{color:#116611;}
+    .row{margin:0.4em 0;}
