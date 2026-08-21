@@ -1,6 +1,21 @@
+<div align="center">
+
 # encrize.vip
 
-Personal website on Cloudflare Pages.
+**Personal website on Cloudflare Pages.**
+
+<p>
+  <img alt="Cloudflare Pages" src="https://img.shields.io/badge/Cloudflare-Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white">
+  <img alt="Cloudflare Workers" src="https://img.shields.io/badge/Cloudflare-Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white">
+  <img alt="Workers KV" src="https://img.shields.io/badge/Workers-KV-2C2C2B?style=for-the-badge">
+</p>
+<p>
+  <img alt="Node.js 20+" src="https://img.shields.io/badge/Node.js-20%2B-46A171?style=flat-square&logo=nodedotjs&logoColor=white">
+  <img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub-Actions-2783DE?style=flat-square&logo=githubactions&logoColor=white">
+  <img alt="Device API" src="https://img.shields.io/badge/API-devices-D5803B?style=flat-square">
+</p>
+
+</div>
 
 ## Layout
 
