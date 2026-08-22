@@ -1,20 +1,20 @@
 {
-	"generatedAt": "2026-08-21T03:59:40.554Z",
+	"generatedAt": "2026-08-22T03:55:28.201Z",
 	"user": "encrize",
-	"total": 4983776,
+	"total": 5069092,
 	"repos": 33,
 	"pairs": [
 		[
 			"C",
-			3038825
+			3034893
+		],
+		[
+			"HTML",
+			514147
 		],
 		[
 			"JavaScript",
 			505845
-		],
-		[
-			"HTML",
-			428973
 		],
 		[
 			"Objective-C",
@@ -30,11 +30,11 @@
 		],
 		[
 			"Python",
-			70699
+			74627
 		],
 		[
 			"Shell",
-			31198
+			31758
 		],
 		[
 			"TypeScript",
@@ -42,7 +42,7 @@
 		],
 		[
 			"Makefile",
-			14106
+			13692
 		],
 		[
 			"Assembly",
