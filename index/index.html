@@ -320,11 +320,6 @@
 <div class="wrap header-inner">
 <a class="brand" href="#top">encrize</a>
 <nav aria-label="Primary" class="site-nav">
-<a href="#about">about</a>
-<a href="#devices">devices</a>
-<a href="#projects">work</a>
-<a href="https://blog.encrize.vip/">blog</a>
-<a href="https://notes.encrize.vip/">notes</a>
 <a class="nav-cta" href="#contact">contact</a>
 <span class="icon-btns">
 <a aria-label="GitHub" class="icon-btn" href="https://github.com/encrize" rel="me"><svg aria-hidden="true" class="icon-current" focusable="false" viewbox="0 0 24 24">
@@ -383,213 +378,11 @@
 </div>
 <dl class="facts-line">
 <div id="fact-commit"><dt>last commit</dt><dd><span data-repo="" id="last-commit">checking github...</span></dd></div>
-<div><dt>focus</dt><dd>systems programming</dd></div>
-<div><dt>currently</dt><dd>building fukOS</dd></div>
+<div><dt>focus</dt><dd>cybersecurity</dd></div>
+<div><dt>currently</dt><dd>studying</dd></div>
 </dl>
 </section>
-<section aria-labelledby="about-title" id="about">
-<div class="section-head">
-<span class="eyebrow">whoami</span>
-<h2 id="about-title">// No magic, no giant frameworks.</h2>
-</div>
-<div class="prose">
-<p>Hey, I'm <b>encrize</b> - an 18-year-old <b>developer</b> and <b>cybersecurity enthusiast</b>. I'm usually online, building something, taking something apart, or trying to figure out why it broke.</p>
-<p>I make web sites, apps, games and some low-level software, and most of my time goes into <b>operating system and systems programming</b> in C.</p>
-<p>I also have a small devblog with short build logs at <a href="https://blog.encrize.vip/">blog.encrize.vip</a>, and I keep a page of <a href="https://notes.encrize.vip/">notes with saved links and project ideas</a>.</p>
-</div>
-<div class="focus-card focus-card-spaced">
-<div>
-<span class="kicker">favourite project</span>
-<h3>aniwired</h3>
-<p>ad-free anime streaming, built solo in vanilla html/css/js on cloudflare workers + d1. no accounts required to start watching, but sign in and your history, saves and friends list sync across every device. dual player sources, ambient light behind the video, TMDB banner art. fully free to run and maintain.</p>
-<div class="card-links">
-<a aria-label="aniwired source code on GitHub" href="https://github.com/encrize/anime">source →</a>
-<a aria-label="live aniwired website" href="https://anime.encrize.vip">live →</a>
-</div>
-</div>
-<div class="focus-meta">
-<div><span>Stack</span><span>Vanilla JS</span></div>
-<div><span>Backend</span><span>Cloudflare Workers</span></div>
-<div><span>Sources</span><span>AniLibria / Kodik</span></div>
-<div><span>Status</span><span>Daily driver</span></div>
-</div>
-</div>
-</section>
 
-<section aria-labelledby="devices-title" id="devices">
-<div class="section-head">
-<span class="eyebrow">cat /sys/class/power_supply/*</span>
-<h2 id="devices-title">// Devices</h2>
-<p>Battery telemetry reported by my Linux laptop, Android phone and iphone 'homelab'.</p>
-</div>
-<div aria-busy="true" aria-describedby="devices-sync" class="devices-panel" data-state="loading" id="devices-panel">
-<div class="devices-panel-head">
-<span class="devices-live">live telemetry</span>
-<span aria-live="polite" class="devices-sync" id="devices-sync">connecting…</span>
-</div>
-<div aria-live="polite" class="devices-list" id="devices-list">
-<div aria-hidden="true" class="device-skeleton"><span></span><span></span><span></span></div>
-<div aria-hidden="true" class="device-skeleton"><span></span><span></span><span></span></div>
-<div aria-hidden="true" class="device-skeleton"><span></span><span></span><span></span></div>
-</div>
-</div>
-<noscript><p class="devices-noscript">JavaScript is required to load live device status.</p></noscript>
-</section>
-
-</div>
-<div aria-hidden="true" class="marquee">
-<div class="marquee-track">
-<span class="tag">C</span><span class="tag">Assembly</span><span class="tag">x86</span><span class="tag">Kernel Development</span><span class="tag">Paging</span><span class="tag">VFS</span><span class="tag">QEMU</span><span class="tag">SDL2</span><span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">Android</span><span class="tag">TypeScript</span><span class="tag">Node</span><span class="tag">Vanilla JS</span><span class="tag">Canvas</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Godot 4</span><span class="tag">GDScript</span><span class="tag">Cloudflare Workers</span><span class="tag">Linux</span><span class="tag">Git</span><span class="tag">Secure Auth</span><span class="tag">PGP</span>
-</div>
-</div>
-<div class="wrap">
-<section aria-labelledby="projects-title" class="no-top-border" id="projects">
-<div class="section-head">
-<span class="eyebrow">ls ~/projects</span>
-<h2 id="projects-title">// Things I actually finished.</h2>
-<p>Ten projects, from a hobby kernel to browser tools people use every day.</p>
-</div>
-<div class="projects">
-<article class="pcard pcard-w2 has-media" id="fukos">
-<span aria-hidden="true" class="pcard-idx" data-idx="01"></span>
-<span aria-hidden="true" class="pcard-dots"></span>
-<span aria-hidden="true" class="pcard-spot"></span>
-<div class="pcard-main">
-<span class="pcard-kind">operating system</span>
-<h3><a aria-label="fukOS source code on GitHub" href="https://github.com/encrize/fukOS">fukOS<svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></h3>
-<p>32-bit x86 hobby OS in C and Assembly, with the fuk1 language on top.</p>
-</div>
-<div aria-label="fukOS screenshots" aria-roledescription="carousel" class="shots" data-shots="">
-<div class="shots__caption" data-shots-caption=""></div>
-<div aria-hidden="true" class="shots__counter"><span data-shots-index="">1</span> / <span data-shots-total="">1</span></div>
-<div class="shots__track" data-shots-track="">
-<figure class="shot">
-
-<img alt="fukOS files" decoding="async" height="800" loading="lazy" src="shots/shot1.webp" width="1280"/>
-</figure>
-<figure class="shot">
-
-<img alt="fukOS fastfetch" decoding="async" height="800" loading="lazy" src="shots/shot2.webp" width="1280"/>
-</figure>
-<figure class="shot">
-
-<img alt="doom menu" decoding="async" height="800" loading="lazy" src="shots/shot3.webp" width="1280"/>
-</figure>
-<figure class="shot">
-
-<img alt="doom port running on fukOS" decoding="async" height="800" loading="lazy" src="shots/shot4.webp" width="1280"/>
-</figure>
-</div>
-<button aria-label="Previous screenshot" class="shots__nav shots__nav--prev" data-shots-prev="" type="button">‹</button>
-<button aria-label="Next screenshot" class="shots__nav shots__nav--next" data-shots-next="" type="button">›</button>
-<div aria-label="Choose screenshot" class="shots__dots" data-shots-dots="" role="tablist"></div>
-</div>
-<div class="pcard-foot"><ul class="tags"><li class="tag">C</li><li class="tag">Assembly</li><li class="tag">x86</li></ul><span class="pcard-cta">source →</span></div>
-</article>
-<article class="pcard has-media" id="bytefall">
-<span aria-hidden="true" class="pcard-idx" data-idx="02"></span>
-<span aria-hidden="true" class="pcard-dots"></span>
-<span aria-hidden="true" class="pcard-spot"></span>
-<div class="pcard-main">
-<span class="pcard-kind">visualizer</span>
-<h3><a aria-label="bytefall source code on GitHub" href="https://github.com/encrize/bytefall">bytefall<svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></h3>
-<p>Raw-data visualizer that renders any file as pixels and audio. Written in C with SDL2.</p>
-</div>
-<div class="pshot">
-<img src="shots/shot5.webp" alt="bytefall rendering a file as pixels" loading="lazy" decoding="async" width="780" height="300">
-</div>
-<div class="pcard-foot"><ul class="tags"><li class="tag">C</li><li class="tag">SDL2</li></ul><span class="pcard-cta">source →</span></div>
-</article>
-<article class="pcard" id="bad-apple">
-<span aria-hidden="true" class="pcard-idx" data-idx="03"></span>
-<span aria-hidden="true" class="pcard-dots"></span>
-<span aria-hidden="true" class="pcard-spot"></span>
-<div class="pcard-main">
-<span class="pcard-kind">demo</span>
-<h3><a aria-label="Bad Apple in 160kb source code on GitHub" href="https://github.com/encrize/bad-apple-in-100kb">Bad Apple in 100kb<svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></h3>
-<p>The whole Bad Apple!! animation squeezed into about 100 kb.</p>
-</div>
-<div class="pcard-foot"><ul class="tags"><li class="tag">Compression</li><li class="tag">Demoscene</li></ul><span class="pcard-cta">source →</span></div>
-</article>
-<article class="pcard pcard-w2" id="oscilloscope">
-<span aria-hidden="true" class="pcard-idx" data-idx="04"></span>
-<span aria-hidden="true" class="pcard-dots"></span>
-<span aria-hidden="true" class="pcard-spot"></span>
-<div class="pcard-main">
-<span class="pcard-kind">graphics</span>
-<h3><a aria-label="oscilloscope-xy source code on GitHub" href="https://github.com/encrize/oscilloscope">oscilloscope-xy<svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></h3>
-<p>Oscilloscope-style X/Y renderer for vector and audio-driven visuals.</p>
-</div>
-<div class="pcard-foot"><ul class="tags"><li class="tag">Audio</li><li class="tag">Rendering</li></ul><span class="pcard-cta">source →</span></div>
-</article>
-<article class="pcard" id="aniwired">
-<span aria-hidden="true" class="pcard-idx" data-idx="05"></span>
-<span aria-hidden="true" class="pcard-dots"></span>
-<span aria-hidden="true" class="pcard-spot"></span>
-<div class="pcard-main">
-<span class="pcard-kind">web app</span>
-<h3><a aria-label="AniWired live app" href="https://anime.encrize.vip/">AniWired<svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></h3>
-<p>Self-hosted, minimal anime streaming app built as a vanilla JS single page app.</p>
-</div>
-<div class="pcard-foot"><ul class="tags"><li class="tag">Vanilla JS</li><li class="tag">SPA</li></ul><span class="pcard-cta">live →</span></div>
-</article>
-<article class="pcard" id="encrizelab">
-<span aria-hidden="true" class="pcard-idx" data-idx="06"></span>
-<span aria-hidden="true" class="pcard-dots"></span>
-<span aria-hidden="true" class="pcard-spot"></span>
-<div class="pcard-main">
-<span class="pcard-kind">tools</span>
-<h3><a aria-label="EncrizeLab live web tools" href="https://tools.encrize.vip/">EncrizeLab<svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></h3>
-<p>All-in-one suite of free web utilities and tools, running fully in the browser.</p>
-</div>
-<div class="pcard-foot"><ul class="tags"><li class="tag">TypeScript</li><li class="tag">Web</li></ul><span class="pcard-cta">live →</span></div>
-</article>
-<article class="pcard" id="pass-gen">
-<span aria-hidden="true" class="pcard-idx" data-idx="07"></span>
-<span aria-hidden="true" class="pcard-dots"></span>
-<span aria-hidden="true" class="pcard-spot"></span>
-<div class="pcard-main">
-<span class="pcard-kind">security</span>
-<h3><a aria-label="EncrizeLab password generator" href="https://tools.encrize.vip/tools/pass-gen">Password Generator<svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></h3>
-<p>Secure password, diceware passphrase and BIP39 seed generator that never leaves your browser.</p>
-</div>
-<div class="pcard-foot"><ul class="tags"><li class="tag">WebCrypto</li><li class="tag">BIP39</li></ul><span class="pcard-cta">live →</span></div>
-</article>
-<article class="pcard pcard-w2" id="gifty">
-<span aria-hidden="true" class="pcard-idx" data-idx="08"></span>
-<span aria-hidden="true" class="pcard-dots"></span>
-<span aria-hidden="true" class="pcard-spot"></span>
-<div class="pcard-main">
-<span class="pcard-kind">android</span>
-<h3><a aria-label="Gifty source code on GitHub" href="https://github.com/encrize/Gifty">Gifty<svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></h3>
-<p>Universal gift tracker built with Kotlin and Jetpack Compose. Backups in JSON, CSV and PDF.</p>
-</div>
-<div class="pcard-foot"><ul class="tags"><li class="tag">Kotlin</li><li class="tag">Compose</li></ul><span class="pcard-cta">source →</span></div>
-</article>
-<article class="pcard" id="new-page">
-<span aria-hidden="true" class="pcard-idx" data-idx="09"></span>
-<span aria-hidden="true" class="pcard-dots"></span>
-<span aria-hidden="true" class="pcard-spot"></span>
-<div class="pcard-main">
-<span class="pcard-kind">dashboard</span>
-<h3><a aria-label="Personal New Page source code on GitHub" href="https://github.com/encrize/Personal-New-Page">Personal New Page<svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></h3>
-<p>Custom browser new-tab start page - a minimal personal dashboard with quick links.</p>
-</div>
-<div class="pcard-foot"><ul class="tags"><li class="tag">HTML</li><li class="tag">CSS</li></ul><span class="pcard-cta">source →</span></div>
-</article>
-<article class="pcard pcard-w3" id="site">
-<span aria-hidden="true" class="pcard-idx" data-idx="10"></span>
-<span aria-hidden="true" class="pcard-dots"></span>
-<span aria-hidden="true" class="pcard-spot"></span>
-<div class="pcard-main">
-<span class="pcard-kind">this site</span>
-<h3><a aria-label="encrize.vip source code on GitHub" href="https://github.com/encrize/website">encrize.vip<svg aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></h3>
-<p>The source of my personal web site.</p>
-</div>
-<div class="pcard-foot"><ul class="tags"><li class="tag">HTML</li><li class="tag">CSS</li></ul><span class="pcard-cta">source →</span></div>
-</article>
-</div>
-</section>
 <section aria-labelledby="contact-title" id="contact">
 <div class="section-head">
 <span class="eyebrow">ping encrize</span>
@@ -607,19 +400,7 @@
 <a href="https://blog.encrize.vip/feed.xml"><span class="label">RSS</span><span class="handle">feed.xml</span></a>
 </div>
 </div>
-<div class="security-card" id="security">
-<div>
-<span class="kicker">security</span>
-</div>
-<ul>
-<li><a href="/pgp-key.txt">PGP public key</a><span class="fpr">66B197351834688FA26E6D53E47ACC864659569C</span></li>
-<li><a href="/.well-known/security.txt">security.txt</a></li>
-</ul>
-</div>
-</div>
-</section>
-</div>
-</main>
+
 <footer>
 <div class="wrap footer-inner">
 <span>© 2026 encrize · last updated <time datetime="2026-08-19" id="last-updated">21 Aug 2026</time></span>
