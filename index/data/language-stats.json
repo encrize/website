@@ -1,8 +1,8 @@
 {
-	"generatedAt": "2026-11-23T12:28:46.645Z",
+	"generatedAt": "2026-11-24T13:37:57.890Z",
 	"user": "encrize",
-	"total": 6368786,
-	"repos": 38,
+	"total": 6567098,
+	"repos": 40,
 	"pairs": [
 		[
 			"C",
@@ -13,12 +13,12 @@
 			892413
 		],
 		[
-			"JavaScript",
-			665610
+			"HTML",
+			739827
 		],
 		[
-			"HTML",
-			541515
+			"JavaScript",
+			665610
 		],
 		[
 			"Objective-C",
