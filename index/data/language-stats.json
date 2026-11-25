@@ -1,24 +1,24 @@
 {
-	"generatedAt": "2026-11-24T13:37:57.890Z",
+	"generatedAt": "2026-11-25T12:47:50.154Z",
 	"user": "encrize",
-	"total": 6567098,
-	"repos": 40,
+	"total": 7093868,
+	"repos": 41,
 	"pairs": [
 		[
 			"C",
 			3034893
 		],
 		[
+			"HTML",
+			1184555
+		],
+		[
 			"TypeScript",
 			892413
 		],
 		[
-			"HTML",
-			739827
-		],
-		[
 			"JavaScript",
-			665610
+			715762
 		],
 		[
 			"Objective-C",
@@ -38,11 +38,11 @@
 		],
 		[
 			"Python",
-			79887
+			111563
 		],
 		[
 			"Shell",
-			33865
+			34052
 		],
 		[
 			"Makefile",
@@ -67,6 +67,10 @@
 		[
 			"Batchfile",
 			78
+		],
+		[
+			"Hack",
+			27
 		]
 	]
 }
